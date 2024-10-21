@@ -6,9 +6,11 @@ const config = require('config'); // Import the config module
 
 // Initialize Express app
 const app = express();
+const cors = require('cors');
 
 // Middleware to parse JSON bodies
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors());
 
 const mongoURI = config.get('database.url');
 
@@ -28,6 +30,8 @@ app.get('/', (req, res) => {
 });
 
 // bch nzid routes w n7othom fi ficher routes.js
+app.use('/api/auth', require('./middlewares/auth'));
+app.use('/api/users', require('./routes/api/userAPI'));  
 //const causeRoutes = require('./routes/causeRoutes');
 //app.use('/api', causeRoutes);
 
