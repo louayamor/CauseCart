@@ -1,336 +1,993 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+    <!-- preload -->
+    <div class="preload preload-container">
+      <div class="preload-logo">
+          <div class="spinner"></div>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
   </div>
-</main>
+  <!-- /preload -->
+  <div id="wrapper">
+      <!-- Top Bar -->
+      <app-top-bar></app-top-bar>
+      <!-- /Top Bar -->
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+      <!-- Header -->
+      <app-header> </app-header>
+      <!-- /Header -->
+
+      <!-- Slider -->
+      <app-slider></app-slider>
+      <!-- /Slider -->
+
+      <!-- Marquee -->
+      <app-marque></app-marque>
+      <!-- /Marquee -->
+
+      <!-- Categories -->
+      <app-categories></app-categories>
+      <!-- /Categories -->
+
+      <!-- Seller -->
+      <app-seller></app-seller>
+      <!-- /Seller -->
+
+      <!-- Lookbook -->
+      <app-lookbook></app-lookbook>
+      <!-- /Lookbook -->
+      <!-- Testimonial -->
+      <app-testimonial></app-testimonial>
+      <!-- /Testimonial -->
+      <!-- brand -->
+      <section class="flat-spacing-5 pt_0">
+          <div class="container">
+              <div dir="ltr" class="swiper tf-sw-brand" data-loop="false" data-play="false" data-preview="6" data-tablet="3" data-mobile="2" data-space-lg="0" data-space-md="0">
+                  <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                              <div class="brand-item">
+                                  <img class="lazyload" data-src="assets/images/brand/brand-01.png" src="assets/images/brand/brand-01.png" alt="image-brand">
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="brand-item">
+                                  <img class="lazyload" data-src="assets/images/brand/brand-02.png" src="assets/images/brand/brand-02.png" alt="image-brand">
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="brand-item">
+                                  <img class="lazyload" data-src="assets/images/brand/brand-03.png" src="assets/images/brand/brand-03.png" alt="image-brand">
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="brand-item">
+                                  <img class="lazyload" data-src="assets/images/brand/brand-04.png" src="assets/images/brand/brand-04.png" alt="image-brand">
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="brand-item">
+                                  <img class="lazyload" data-src="assets/images/brand/brand-05.png" src="assets/images/brand/brand-05.png" alt="image-brand">
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="brand-item">
+                                  <img class="lazyload" data-src="assets/images/brand/brand-06.png" src="assets/images/brand/brand-06.png" alt="image-brand">
+                              </div>
+                          </div>
+                  </div>
+              </div>
+              <div class="sw-dots style-2 sw-pagination-brand justify-content-center"></div>
+          </div>
+      </section>
+      <!-- /brand -->
+      <!-- Shop Gram -->
+      <section class="flat-spacing-7">
+          <div class="container">
+              <div class="flat-title wow fadeInUp" data-wow-delay="0s">
+                  <span class="title">Shop Gram</span>
+                  <p class="sub-title">Inspire and let yourself be inspired, from one unique fashion to another.</p>
+              </div>
+              <div class="wrap-carousel wrap-shop-gram">
+                  <div dir="ltr" class="swiper tf-sw-shop-gallery" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="7" data-space-md="7">
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                              <div class="gallery-item hover-img wow fadeInUp" data-wow-delay=".2s">
+                                  <div class="img-style">
+                                      <img class="lazyload img-hover" data-src="assets/images/shop/gallery/gallery-7.jpg" src="assets/images/shop/gallery/gallery-7.jpg" alt="image-gallery">
+                                  </div>
+                                  <a href="#quick_add" data-bs-toggle="modal" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">Quick Add</span></a>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="gallery-item hover-img wow fadeInUp" data-wow-delay=".3s">
+                                  <div class="img-style">
+                                      <img class="lazyload img-hover" data-src="assets/images/shop/gallery/gallery-3.jpg" src="assets/images/shop/gallery/gallery-3.jpg" alt="image-gallery">
+                                  </div>
+                                  <a href="#quick_add" data-bs-toggle="modal" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">Quick Add</span></a>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="gallery-item hover-img wow fadeInUp" data-wow-delay=".4s">
+                                  <div class="img-style">
+                                      <img class="lazyload img-hover" data-src="assets/images/shop/gallery/gallery-5.jpg" src="assets/images/shop/gallery/gallery-5.jpg" alt="image-gallery">
+                                  </div>
+                                  <a href="#quick_add" data-bs-toggle="modal" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">Quick Add</span></a>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="gallery-item hover-img wow fadeInUp" data-wow-delay=".5s">
+                                  <div class="img-style">
+                                      <img class="lazyload img-hover" data-src="assets/images/shop/gallery/gallery-8.jpg" src="assets/images/shop/gallery/gallery-8.jpg" alt="image-gallery">
+                                  </div>
+                                  <a href="#" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="gallery-item hover-img wow fadeInUp" data-wow-delay=".6s">
+                                  <div class="img-style">
+                                      <img class="lazyload img-hover" data-src="assets/images/shop/gallery/gallery-6.jpg" src="assets/images/shop/gallery/gallery-6.jpg" alt="image-gallery">
+                                  </div>
+                                  <a href="#" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="sw-dots sw-pagination-gallery justify-content-center"></div>
+              </div>
+          </div>
+      </section>
+      <!-- /Shop Gram -->
+      <!-- Icon box -->
+      <section class="flat-spacing-7 flat-iconbox wow fadeInUp" data-wow-delay="0s">
+          <div class="container">
+              <div class="wrap-carousel wrap-mobile">
+                  <div dir="ltr" class="swiper tf-sw-mobile" data-preview="1" data-space="15">
+                      <div class="swiper-wrapper wrap-iconbox">
+                          <div class="swiper-slide">
+                              <div class="tf-icon-box style-border-line text-center">
+                                  <div class="icon">
+                                      <i class="icon-shipping"></i>
+                                  </div>
+                                  <div class="content">
+                                      <div class="title">Free Shipping</div>
+                                      <p>Free shipping over order $120</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="tf-icon-box style-border-line text-center">
+                                  <div class="icon">
+                                      <i class="icon-payment fs-22"></i>
+                                  </div>
+                                  <div class="content">
+                                      <div class="title">Flexible Payment</div>
+                                      <p>Pay with Multiple Credit Cards</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="tf-icon-box style-border-line text-center">
+                                  <div class="icon">
+                                      <i class="icon-return fs-22"></i>
+                                  </div>
+                                  <div class="content">
+                                      <div class="title">14 Day Returns</div>
+                                      <p>Within 30 days for an exchange</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="tf-icon-box style-border-line text-center">
+                                  <div class="icon">
+                                      <i class="icon-suport"></i>
+                                  </div>
+                                  <div class="content">
+                                      <div class="title">Premium Support</div>
+                                      <p>Outstanding premium support</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+  
+                  </div>
+                  <div class="sw-dots style-2 sw-pagination-mb justify-content-center"></div>
+              </div>
+          </div>
+      </section>
+      <!-- /Icon box -->
+      <!-- Footer -->
+      <app-footer></app-footer>
+      <!-- /Footer -->
+      
+  </div>
+
+  <!-- gotop -->
+  <div class="progress-wrap">
+      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+      </svg>
+  </div>
+  <!-- /gotop -->
+  
+  <!-- toolbar-bottom -->
+  <div class="tf-toolbar-bottom type-1150">
+      <div class="toolbar-item">
+          <a href="#toolbarShopmb" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+              <div class="toolbar-icon">
+                  <i class="icon-shop"></i>
+              </div>
+              <div class="toolbar-label">Shop</div>
+          </a>
+      </div>
+      
+      <div class="toolbar-item">
+          <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+              <div class="toolbar-icon">
+                  <i class="icon-search"></i>
+              </div>
+              <div class="toolbar-label">Search</div>
+          </a>
+      </div>
+      <div class="toolbar-item">
+          <a href="#login" data-bs-toggle="modal">
+              <div class="toolbar-icon">
+                  <i class="icon-account"></i>
+              </div>
+              <div class="toolbar-label">Account</div>
+          </a>
+      </div>
+      <div class="toolbar-item">
+          <a href="#">
+              <div class="toolbar-icon">
+                  <i class="icon-heart"></i>
+                  <div class="toolbar-count">0</div>
+              </div>
+              <div class="toolbar-label">Wishlist</div>
+          </a>
+      </div>
+      <div class="toolbar-item">
+          <a href="#shoppingCart" data-bs-toggle="modal">
+              <div class="toolbar-icon">
+                  <i class="icon-bag"></i>
+                  <div class="toolbar-count">1</div>
+              </div>
+              <div class="toolbar-label">Cart</div>
+          </a>
+      </div>
+  </div>
+  <!-- /toolbar-bottom -->
+
+  <!-- mobile menu -->
+  <div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
+      <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+      <div class="mb-canvas-content">
+          <div class="mb-body">
+         
+              <div class="mb-other-content">
+                  <div class="d-flex group-icon">
+                      <a href="#" class="site-nav-icon"><i class="icon icon-heart"></i>Wishlist</a>
+                      <a href="#" class="site-nav-icon"><i class="icon icon-search"></i>Search</a>
+                  </div>
+                  <div class="mb-notice">
+                      <a href="#" class="text-need">Need help ?</a>
+                  </div>
+                  <ul class="mb-info">
+                      <li>Address: 1234 Fashion Street, Suite 567, <br> New York, NY 10001</li>
+                      <li>Email: <b>infolulla.com</b></li>
+                      <li>Phone: <b>(555) 555-5555</b></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="mb-bottom">
+              <a href="#" class="site-nav-icon"><i class="icon icon-account"></i>Login</a>
+              <div class="bottom-bar-language">
+                  <div class="tf-currencies">
+                      <select class="image-select center style-default type-currencies">
+                          <option data-thumbnail="assets/images/country/fr.svg">EUR <span>€ | France</span></option>
+                          <option data-thumbnail="assets/images/country/de.svg">EUR <span>€ | Germany</span></option>
+                          <option selected data-thumbnail="assets/images/country/us.svg">USD <span>$ | United States</span></option>
+                          <option data-thumbnail="assets/images/country/vn.svg">VND <span>₫ | Vietnam</span></option>
+                      </select>
+                  </div>
+                  <div class="tf-languages">
+                      <select class="image-select center style-default type-languages">
+                          <option>English</option>
+                          <option>العربية</option>
+                          <option>简体中文</option>
+                          <option>اردو</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+      </div>       
+  </div>
+  <!-- /mobile menu -->
 
 
-<router-outlet />
+
+  <!-- canvasSearch -->
+  <app-search></app-search>
+  <!-- /canvasSearch -->
+
+  <!-- toolbarShopmb -->
+  <div class="offcanvas offcanvas-start canvas-mb toolbar-shop-mobile" id="toolbarShopmb">
+      <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+      <div class="mb-canvas-content">
+          <div class="mb-body">
+              <ul class="nav-ul-mb" id="wrapper-menu-navigation">
+                  <li class="nav-mb-item">
+                      <a href="#" class="tf-category-link mb-menu-link">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate1.jpg" alt="">
+                          </div>
+                          <span>Accessories</span>
+                      </a>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#" class="tf-category-link mb-menu-link">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate2.jpg" alt="">
+                          </div>
+                          <span>Dog</span>
+                      </a>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#" class="tf-category-link mb-menu-link">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate3.jpg" alt="">
+                          </div>
+                          <span>Grocery</span>
+                      </a>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#" class="tf-category-link mb-menu-link">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate4.png" alt="">
+                          </div>
+                          <span>Handbag</span>
+                      </a>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#cate-menu-one" class="tf-category-link has-children collapsed mb-menu-link" data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-menu-one">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate5.jpg" alt="">
+                          </div>
+                          <span>Fashion</span>
+                          <span class="btn-open-sub"></span>
+                      </a>
+                      <div id="cate-menu-one" class="collapse list-cate">
+                          <ul class="sub-nav-menu" id="cate-menu-navigation">
+                              <li>
+                                  <a href="#cate-shop-one" class="tf-category-link has-children sub-nav-link collapsed"  data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-shop-one">
+                                      <div class="image">
+                                          <img src="assets/images/shop/cate/cate6.jpg" alt="">
+                                      </div>
+                                      <span>Mens</span>
+                                      <span class="btn-open-sub"></span>
+                                  </a>
+                                  <div id="cate-shop-one" class="collapse">
+                                      <ul class="sub-nav-menu sub-menu-level-2">
+                                          <li>
+                                              <a href="#" class="tf-category-link sub-nav-link">
+                                                  <div class="image">
+                                                      <img src="assets/images/shop/cate/cate1.jpg" alt="">
+                                                  </div>
+                                                  <span>Accessories</span>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="tf-category-link sub-nav-link">
+                                                  <div class="image">
+                                                      <img src="assets/images/shop/cate/cate8.jpg" alt="">
+                                                  </div>
+                                                  <span>Shoes</span>
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                              <li>
+                                  <a href="#cate-shop-two" class="tf-category-link has-children sub-nav-link collapsed"  data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-shop-two">
+                                      <div class="image">
+                                          <img src="assets/images/shop/cate/cate9.jpg" alt="">
+                                      </div>
+                                      <span>Womens</span>
+                                      <span class="btn-open-sub"></span>
+                                  </a>
+                                  <div id="cate-shop-two" class="collapse">
+                                      <ul class="sub-nav-menu sub-menu-level-2">
+                                          <li>
+                                              <a href="#" class="tf-category-link sub-nav-link">
+                                                  <div class="image">
+                                                      <img src="assets/images/shop/cate/cate4.png" alt="">
+                                                  </div>
+                                                  <span>Handbag</span>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="tf-category-link sub-nav-link">
+                                                  <div class="image">
+                                                      <img src="assets/images/shop/cate/cate7.jpg" alt="">
+                                                  </div>
+                                                  <span>Tee</span>
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#cate-menu-two" class="tf-category-link has-children collapsed mb-menu-link" data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-menu-two">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate6.jpg" alt="">
+                          </div>
+                          <span>Men</span>
+                          <span class="btn-open-sub"></span>
+                      </a>
+                      <div id="cate-menu-two" class="collapse list-cate">
+                          <ul class="sub-nav-menu" id="cate-menu-navigation1">
+                              <li>
+                                  <a href="#" class="tf-category-link sub-nav-link">
+                                      <div class="image">
+                                          <img src="assets/images/shop/cate/cate1.jpg" alt="">
+                                      </div>
+                                      <span>Accessories</span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="tf-category-link sub-nav-link">
+                                      <div class="image">
+                                          <img src="assets/images/shop/cate/cate8.jpg" alt="">
+                                      </div>
+                                      <span>Shoes</span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#" class="tf-category-link mb-menu-link">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate7.jpg" alt="">
+                          </div>
+                          <span>Tee</span>
+                      </a>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#" class="tf-category-link mb-menu-link">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate8.jpg" alt="">
+                          </div>
+                          <span>Shoes</span>
+                      </a>
+                  </li>
+                  <li class="nav-mb-item">
+                      <a href="#cate-menu-three" class="tf-category-link has-children collapsed mb-menu-link" data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-menu-three">
+                          <div class="image">
+                              <img src="assets/images/shop/cate/cate9.jpg" alt="">
+                          </div>
+                          <span>Women</span>
+                          <span class="btn-open-sub"></span>
+                      </a>
+                      <div id="cate-menu-three" class="collapse list-cate">
+                          <ul class="sub-nav-menu" id="cate-menu-navigation2">
+                              <li>
+                                  <a href="#" class="tf-category-link sub-nav-link">
+                                      <div class="image">
+                                          <img src="assets/images/shop/cate/cate4.png" alt="">
+                                      </div>
+                                      <span>Handbag</span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="tf-category-link sub-nav-link">
+                                      <div class="image">
+                                          <img src="assets/images/shop/cate/cate7.jpg" alt="">
+                                      </div>
+                                      <span>Tee</span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <div class="mb-bottom">
+              <a href="#" class="tf-btn fw-5 btn-line">View all collection<i class="icon icon-arrow1-top-left"></i></a>
+          </div>
+      </div>       
+  </div>
+  <!-- /toolbarShopmb -->
+
+  <!-- modal login -->
+  <div class="modal modalCentered fade form-sign-in modal-part-content" id="login">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="header">
+                  <div class="demo-title">Log in</div>
+                  <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+              </div>
+              <div class="tf-login-form">
+                  <form class="" action="#" accept-charset="utf-8">
+                      <div class="tf-field style-1">
+                          <input class="tf-field-input tf-input" placeholder=" " type="email"  name="">
+                          <label class="tf-field-label" for="">Email *</label>
+                      </div>
+                      <div class="tf-field style-1">
+                          <input class="tf-field-input tf-input" placeholder=" " type="password"  name="">
+                          <label class="tf-field-label" for="">Password *</label>
+                      </div>
+                      <div>
+                          <a href="#forgotPassword" data-bs-toggle="modal" class="btn-link link">Forgot your password?</a>
+                      </div>
+                      <div class="bottom"> 
+                          <div class="w-100">
+                              <button type="submit" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Log in</span></button>
+                          </div>
+                          <div class="w-100">
+                              <a href="#register" data-bs-toggle="modal" class="btn-link fw-6 w-100 link">
+                                  New customer? Create your account
+                                  <i class="icon icon-arrow1-top-left"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal modalCentered fade form-sign-in modal-part-content" id="forgotPassword">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="header">
+                  <div class="demo-title">Reset your password</div>
+                  <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+              </div>
+              <div class="tf-login-form">
+                  <form class="">
+                      <div>
+                          <p>Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails</p>
+                      </div>
+                      <div class="tf-field style-1">
+                          <input class="tf-field-input tf-input" placeholder=" " type="email"  name="">
+                          <label class="tf-field-label" for="">Email *</label>
+                      </div>
+                      <div>
+                          <a href="#login" data-bs-toggle="modal" class="btn-link link">Cancel</a>
+                      </div>
+                      <div class="bottom"> 
+                          <div class="w-100">
+                              <button type="submit" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Reset password</span></button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal modalCentered fade form-sign-in modal-part-content" id="register">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="header">
+                  <div class="demo-title">Register</div>
+                  <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+              </div>
+              <div class="tf-login-form">
+                  <form class="">
+                      <div class="tf-field style-1">
+                          <input class="tf-field-input tf-input" placeholder=" " type="text"  name="">
+                          <label class="tf-field-label" for="">First name</label>
+                      </div>
+                      <div class="tf-field style-1">
+                          <input class="tf-field-input tf-input" placeholder=" " type="text"  name="">
+                          <label class="tf-field-label" for="">Last name</label>
+                      </div>
+                      <div class="tf-field style-1">
+                          <input class="tf-field-input tf-input" placeholder=" " type="email"  name="">
+                          <label class="tf-field-label" for="">Email *</label>
+                      </div>
+                      <div class="tf-field style-1">
+                          <input class="tf-field-input tf-input" placeholder=" " type="password"  name="">
+                          <label class="tf-field-label" for="">Password *</label>
+                      </div>
+                      <div class="bottom"> 
+                          <div class="w-100">
+                              <a href="#" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Register</span></a>
+                          </div>
+                          <div class="w-100">
+                              <a href="#login" data-bs-toggle="modal" class="btn-link fw-6 w-100 link">
+                                  Already have an account? Log in here
+                                  <i class="icon icon-arrow1-top-left"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- /modal login -->
+
+  <!-- shoppingCart -->
+  <app-cart></app-cart>
+  <!-- /shoppingCart -->
+
+  <!-- modal compare -->
+  <div class="offcanvas offcanvas-bottom canvas-compare" id="compare">
+      <div class="canvas-wrapper">
+          <header class="canvas-header">
+              <div class="close-popup">
+                  <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+              </div>
+          </header>
+          <div class="canvas-body">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-12">
+                          <div class="tf-compare-list">
+                              <div class="tf-compare-head">
+                                  <div class="title">Compare Products</div>
+                              </div>
+                              <div class="tf-compare-offcanvas">
+                                  <div class="tf-compare-item">
+                                      <div class="position-relative">
+                                          <div class="icon">
+                                              <i class="icon-close"></i>
+                                          </div>
+                                          <a href="#">
+                                              <img class="radius-3" src="assets/images/products/orange-1.jpg" alt="">
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <div class="tf-compare-item">
+                                      <div class="position-relative">
+                                          <div class="icon">
+                                              <i class="icon-close"></i>
+                                          </div>
+                                          <a href="#">
+                                              <img class="radius-3" src="assets/images/products/pink-1.jpg" alt="">
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="tf-compare-buttons">
+                                  <div class="tf-compare-buttons-wrap">
+                                      <a href="#" class="tf-btn radius-3 btn-fill justify-content-center fw-6 fs-14 flex-grow-1 animate-hover-btn ">Compare</a>
+                                      <div class="tf-compapre-button-clear-all link">
+                                          Clear All
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>       
+  </div>
+  <!-- /modal compare -->
+  
+  <!-- modal quick_add -->
+  <div class="modal fade modalDemo" id="quick_add">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="header">
+                  <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+              </div>
+              <div class="wrap">
+                  <div class="tf-product-info-item">
+                      <div class="image">
+                          <img src="assets/images/products/orange-1.jpg" alt="">
+                      </div>
+                      <div class="content">
+                          <a href="#">Ribbed Tank Top</a>
+                          <div class="tf-product-info-price">
+                              <!-- <div class="price-on-sale">$8.00</div>
+                              <div class="compare-at-price">$10.00</div>
+                              <div class="badges-on-sale"><span>20</span>% OFF</div> -->
+                              <div class="price">$18.00</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="tf-product-info-variant-picker mb_15">
+                      <div class="variant-picker-item">
+                          <div class="variant-picker-label">
+                              Color: <span class="fw-6 variant-picker-label-value">Orange</span>
+                          </div>
+                          <div class="variant-picker-values">
+                              <input id="values-orange" type="radio" name="color" checked>
+                              <label class="hover-tooltip radius-60" for="values-orange" data-value="Orange">
+                                  <span class="btn-checkbox bg-color-orange"></span>
+                                  <span class="tooltip">Orange</span>
+                              </label>
+                              <input id="values-black" type="radio" name="color">
+                              <label class=" hover-tooltip radius-60" for="values-black" data-value="Black">
+                                  <span class="btn-checkbox bg-color-black"></span>
+                                  <span class="tooltip">Black</span>
+                              </label>
+                              <input id="values-white" type="radio" name="color">
+                              <label class="hover-tooltip radius-60" for="values-white" data-value="White">
+                                  <span class="btn-checkbox bg-color-white"></span>
+                                  <span class="tooltip">White</span>
+                              </label>
+                          </div>
+                      </div>
+                      <div class="variant-picker-item">
+                          <div class="variant-picker-label">
+                              Size: <span class="fw-6 variant-picker-label-value">S</span>
+                          </div>
+                          <div class="variant-picker-values">
+                              <input type="radio" name="size" id="values-s" checked>
+                              <label class="style-text" for="values-s" data-value="S">
+                                  <p>S</p>
+                              </label>
+                              <input type="radio" name="size" id="values-m">
+                              <label class="style-text" for="values-m" data-value="M">
+                                  <p>M</p>
+                              </label>
+                              <input type="radio" name="size" id="values-l">
+                              <label class="style-text" for="values-l" data-value="L">
+                                  <p>L</p>
+                              </label>
+                              <input type="radio" name="size" id="values-xl">
+                              <label class="style-text" for="values-xl" data-value="XL">
+                                  <p>XL</p>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="tf-product-info-quantity mb_15">
+                      <div class="quantity-title fw-6">Quantity</div>
+                      <div class="wg-quantity">
+                          <span class="btn-quantity minus-btn">-</span>
+                          <input type="text" name="number" value="1">
+                          <span class="btn-quantity plus-btn">+</span>
+                      </div>
+                  </div>
+                  <div class="tf-product-info-buy-button">
+                      <form>
+                          <a class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price">$18.00</span></a>
+                          <div class="tf-product-btn-wishlist btn-icon-action">
+                              <i class="icon-heart"></i>
+                              <i class="icon-delete"></i>
+                          </div>
+                          <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="tf-product-btn-wishlist box-icon bg_white compare btn-icon-action">
+                              <span class="icon icon-compare"></span>
+                              <span class="icon icon-check"></span>
+                          </a>
+                          <div class="w-100">
+                              <a href="#" class="btns-full">Buy with <img src="assets/images/payments/paypal.png" alt=""></a>
+                              <a href="#" class="payment-more-option">More payment options</a>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- /modal quick_add -->
+
+  <!-- modal quick_view -->
+  <div class="modal fade modalDemo" id="quick_view">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="header">
+                  <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+              </div>
+              <div class="wrap">
+                  <div class="tf-product-media-wrap">
+                      <div dir="ltr" class="swiper tf-single-slide">
+                          <div class="swiper-wrapper" >
+                              <div class="swiper-slide">
+                                  <div class="item">
+                                      <img src="assets/images/products/orange-1.jpg" alt="">
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="item">
+                                      <img src="assets/images/products/pink-1.jpg" alt="">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="swiper-button-next button-style-arrow single-slide-prev"></div>
+                          <div class="swiper-button-prev button-style-arrow single-slide-next"></div>
+                      </div>
+                  </div>
+                  <div class="tf-product-info-wrap position-relative">
+                      <div class="tf-product-info-list">
+                          <div class="tf-product-info-title">
+                              <h5><a class="link" href="#">Ribbed Tank Top</a></h5>
+                          </div>
+                          <div class="tf-product-info-badges">
+                              <div class="badges text-uppercase">Best seller</div>
+                              <div class="product-status-content">
+                                  <i class="icon-lightning"></i>
+                                  <p class="fw-6">Selling fast! 48 people have this in their carts.</p>
+                              </div>
+                          </div>
+                          <div class="tf-product-info-price">
+                              <div class="price">$18.00</div>
+                          </div>
+                          <div class="tf-product-description">
+                              <p>Nunc arcu faucibus a et lorem eu a mauris adipiscing conubia ac aptent ligula facilisis a auctor habitant parturient a a.Interdum fermentum.</p>
+                          </div>
+                          <div class="tf-product-info-variant-picker">
+                              <div class="variant-picker-item">
+                                  <div class="variant-picker-label">
+                                      Color: <span class="fw-6 variant-picker-label-value">Orange</span>
+                                  </div>
+                                  <div class="variant-picker-values">
+                                      <input id="values-orange-1" type="radio" name="color-1" checked>
+                                      <label class="hover-tooltip radius-60" for="values-orange-1" data-value="Orange">
+                                          <span class="btn-checkbox bg-color-orange"></span>
+                                          <span class="tooltip">Orange</span>
+                                      </label>
+                                      <input id="values-black-1" type="radio" name="color-1">
+                                      <label class=" hover-tooltip radius-60" for="values-black-1" data-value="Black">
+                                          <span class="btn-checkbox bg-color-black"></span>
+                                          <span class="tooltip">Black</span>
+                                      </label>
+                                      <input id="values-white-1" type="radio" name="color-1">
+                                      <label class="hover-tooltip radius-60" for="values-white-1" data-value="White">
+                                          <span class="btn-checkbox bg-color-white"></span>
+                                          <span class="tooltip">White</span>
+                                      </label>
+                                  </div>
+                              </div>
+                              <div class="variant-picker-item">
+                                  <div class="d-flex justify-content-between align-items-center">
+                                      <div class="variant-picker-label">
+                                          Size: <span class="fw-6 variant-picker-label-value">S</span>
+                                      </div>
+                                      <div class="find-size btn-choose-size fw-6">Find your size</div>
+                                  </div>
+                                  <div class="variant-picker-values">
+                                      <input type="radio" name="size-1" id="values-s-1" checked>
+                                      <label class="style-text" for="values-s-1" data-value="S">
+                                          <p>S</p>
+                                      </label>
+                                      <input type="radio" name="size-1" id="values-m-1">
+                                      <label class="style-text" for="values-m-1" data-value="M">
+                                          <p>M</p>
+                                      </label>
+                                      <input type="radio" name="size-1" id="values-l-1">
+                                      <label class="style-text" for="values-l-1" data-value="L">
+                                          <p>L</p>
+                                      </label>
+                                      <input type="radio" name="size-1" id="values-xl-1">
+                                      <label class="style-text" for="values-xl-1" data-value="XL">
+                                          <p>XL</p>
+                                      </label>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="tf-product-info-quantity">
+                              <div class="quantity-title fw-6">Quantity</div>
+                              <div class="wg-quantity">
+                                  <span class="btn-quantity minus-btn">-</span>
+                                  <input type="text" name="number" value="1">
+                                  <span class="btn-quantity plus-btn">+</span>
+                              </div>
+                          </div>
+                          <div class="tf-product-info-buy-button">
+                              <form class="">
+                                  <a href="javascript:void(0);" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price">$8.00</span></a>
+                                  <a href="javascript:void(0);" class="tf-product-btn-wishlist hover-tooltip box-icon bg_white wishlist btn-icon-action">
+                                      <span class="icon icon-heart"></span>
+                                      <span class="tooltip">Add to Wishlist</span>
+                                      <span class="icon icon-delete"></span>
+                                  </a>
+                                  <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="tf-product-btn-wishlist hover-tooltip box-icon bg_white compare btn-icon-action">
+                                      <span class="icon icon-compare"></span>
+                                      <span class="tooltip">Add to Compare</span>
+                                      <span class="icon icon-check"></span>
+                                  </a>
+                                  <div class="w-100">
+                                      <a href="#" class="btns-full">Buy with <img src="assets/images/payments/paypal.png" alt=""></a>
+                                      <a href="#" class="payment-more-option">More payment options</a>
+                                  </div>
+                              </form>
+                          </div>
+                          <div>
+                              <a href="#" class="tf-btn fw-6 btn-line">View full details<i class="icon icon-arrow1-top-left"></i></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- /modal quick_view -->
+
+  <!-- modal find_size -->
+  <div class="modal fade modalDemo tf-product-modal" id="find_size">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="header">
+                  <div class="demo-title">Size chart</div>
+                  <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+              </div>
+              <div class="tf-rte">
+                  <div class="tf-table-res-df">
+                      <h6>Size guide</h6>
+                      <table class="tf-sizeguide-table">
+                          <thead>
+                              <tr>
+                                  <th>Size</th>
+                                  <th>US</th>
+                                  <th>Bust</th>
+                                  <th>Waist</th>
+                                  <th>Low Hip</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>XS</td>
+                                  <td>2</td>
+                                  <td>32</td>
+                                  <td>24 - 25</td>
+                                  <td>33 - 34</td>
+                              </tr>
+                              <tr>
+                                  <td>S</td>
+                                  <td>4</td>
+                                  <td>34 - 35</td>
+                                  <td>26 - 27</td>
+                                  <td>35 - 26</td>
+                              </tr>
+                              <tr>
+                                  <td>M</td>
+                                  <td>6</td>
+                                  <td>36 - 37</td>
+                                  <td>28 - 29</td>
+                                  <td>38 - 40</td>
+                              </tr>
+                              <tr>
+                                  <td>L</td>
+                                  <td>8</td>
+                                  <td>38 - 29</td>
+                                  <td>30 - 31</td>
+                                  <td>42 - 44</td>
+                              </tr>
+                              <tr>
+                                  <td>XL</td>
+                                  <td>10</td>
+                                  <td>40 - 41</td>
+                                  <td>32 - 33</td>
+                                  <td>45 - 47</td>
+                              </tr>
+                              <tr>
+                                  <td>XXL</td>
+                                  <td>12</td>
+                                  <td>42 - 43</td>
+                                  <td>34 - 35</td>
+                                  <td>48 - 50</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="tf-page-size-chart-content">
+                      <div>
+                          <h6>Measuring Tips</h6>
+                          <div class="title">Bust</div>
+                          <p>Measure around the fullest part of your bust.</p>
+                          <div class="title">Waist</div>
+                          <p>Measure around the narrowest part of your torso.</p>
+                          <div class="title">Low Hip</div>
+                          <p class="mb-0">With your feet together measure around the fullest part of your hips/rear.
+                          </p>
+                      </div>
+                      <div>
+                          <img class="sizechart lazyload" data-src="assets/images/shop/products/size_chart2.jpg" src="assets/images/shop/products/size_chart2.jpg" alt="">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- /modal find_size -->
+
+  <!-- auto popup  -->
+  <app-popup></app-popup>
+  <!-- /auto popup  -->
+
+<router-outlet></router-outlet>
